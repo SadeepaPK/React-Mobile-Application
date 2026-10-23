@@ -138,7 +138,28 @@ const loginUser = async (req, res) => {
   }
 };
 
+// @desc Get current logged in user
+// @route GET /api/v1/auth/me
+// @access Private
+const getMe = async(req, res) => {
+  try{
+    const user = await User.findOne(req.user.id);
+    res.status(200).json({
+      message: "There has a User",
+      success: true,
+      data:user
+    })
+  }
+  catch{
+    res.status(500).json({
+      success: false,
+      error: error.message
+    })
+  }
+}
+
 module.exports = {
   registerUser,
   loginUser,
+  getMe
 };
