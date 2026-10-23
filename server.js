@@ -1,5 +1,5 @@
-require("dotenv").config();
 const express = require("express");
+const dotenv = require("dotenv");
 const connectDB = require('./config/db');
 const routes = require("./routes/authRoutes");
 
@@ -29,8 +29,6 @@ app.use((error, req, res, next) => {
         error: error.message
     })
 })
-
-
 
 const PORT = process.env.PORT || 3000;
 
