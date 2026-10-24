@@ -34,7 +34,7 @@ const createOrder = async (req, res) => {
       ) {
         return res.status(400).json({
           success: false,
-          message: "Quantity must be a whole number greater than 0",
+          message: "Quantity is 0",
         });
       }
 
